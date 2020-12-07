@@ -11,7 +11,8 @@
     <ul>
       {{#each burgers}}
       {{#unless this.devoured}}
-      {{> burger-block  devoured=true}}
+      <li>{{this.burger_name}} <button type="button" class="devour-btn" data-id="{{this.id}}">Devour this!</button>
+      </li>
       {{/unless}}
       {{/each}}
     </ul>
@@ -20,14 +21,15 @@
 </div>
 
 <h2>Burgers that are devoured!</h2>
-
 <ul>
   {{#each burgers}}
   {{#if this.devoured}}
-  {{> burger-block devoured=false}}
+  <li> {{this.burger_name}} <button type=" button" class="devoured-btn" data-id="{{this.id}}">Delete Burger!</button>
+  </li>
   {{/if}}
   {{/each}}
 </ul>
+
 
 <h2>Add a burger</h2>
 <form class="create-form">
