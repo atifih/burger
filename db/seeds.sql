@@ -1,4 +1,4 @@
-- Inserted a set of records into the table
+-- Inserted a set of records into the table
 INSERT INTO burgers (burger_name, devoured)
 VALUES ("La Big Beefy", false);
 
