@@ -1,6 +1,7 @@
 body {
  
   background-color: #979151;
+  
 }
 
 h2{ 
@@ -11,16 +12,19 @@ h2{
    
     color: white;
     background-color: rgb(87, 124, 156);
+    border: 2px     solid  black;
 }
 .container-c{
     
     color: white;
-    background-color: green;
+    background-color: rgb(131, 78, 80);
+    border: 2px solid  black;
 }
 .container-r{
     
     color: rgb(134, 89, 78);
     background-color: rgb(155, 144, 130);
+    border: 2px solid  black;
 }
 
 .clearfix {
@@ -29,17 +33,27 @@ h2{
 }
 
 .delete-btn{
-    text-align: right;
+    text-align: center;
     color:white;
-     background-color: rgb(66, 66, 17);
+     background-color: rgb(134, 94, 94);
 }
 
 .devour-btn{
-    text-align: right;
+    text-align: center;
     color: white;
-     background-color: rgb(77, 86, 135);
+     background-color: rgb(77, 83, 119);
 }
 
 .burger_queue{
-    float: left;
+    float: center;
+    background-color: rgb(83, 77, 69);
+}
+
+    .update-burger-btn{
+        background-color:rgb(60, 100, 78) ;
+        color: white;
+}
+#burger-name{
+    color: white;
+    background-color: rgb(60, 100, 78) ;
 }
