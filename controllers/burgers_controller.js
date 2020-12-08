@@ -1,35 +1,35 @@
-var express = require("express");
-var burger = require("../models/burger.js");
+const express = require("express");
 
-var router = express.Router();
+const router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
-var burgers = require("../models/burger.js");
+const burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function (req, res) {
-	burgers.selectAll(function (data) {
-		var hbsObject = {
-			burgers: data,
+router.get("/", (req, res) => {
+	burger.selectAll((data) => {
+		const hbsObject = {
+			unconsumed_burgers: data,
 		};
 		console.log(hbsObject);
 		res.render("index", hbsObject);
 	});
 });
 
-router.post("/api/burgers", function (req, res) {
+router.post("/api/burgers", (req, res) => {
 	burger.insertOne(
 		["burger_name", "devoured"],
 		[req.body.burger_name, false],
-		function (result) {
+		(result) => {
 			// Send back the ID of the new quote
 			res.json({ id: result.insertId });
 		}
 	);
 });
 
-router.put("/api/burgers/:id", function (req, res) {
-	var condition = "id = " + req.params.id;
+router.put("/api/burgers/:id", (req, res) => {
+	const id = req.params.id;
+	const condition = "id = " + id;
 
 	console.log("condition", condition);
 
@@ -38,7 +38,7 @@ router.put("/api/burgers/:id", function (req, res) {
 			devoured: true,
 		},
 		condition,
-		function (result) {
+		(result) => {
 			if (result.changedRows === 0) {
 				// If no rows were changed, then the ID must not exist, so 404
 				return res.status(404).end();
@@ -46,10 +46,11 @@ router.put("/api/burgers/:id", function (req, res) {
 			res.status(200).end();
 		}
 	);
-	router.delete("/api/burgers/:id", function (req, res) {
-		var condition = "id = " + req.params.id;
+	router.delete("/api/burgers/:id", (req, res) => {
+		const id = req.params.id;
+		const condition = "id = " + id;
 
-		burger.delete(condition, function (result) {
+		burger.delete(condition, (result) => {
 			if (result.changedRows === 0) {
 				// If no rows were changed, then the ID must not exist, so 404
 				return res.status(404).end();

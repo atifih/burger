@@ -4,39 +4,42 @@
 
 </div>
 
-<div class="container burger-queue">
+<div class="succulent">
   <div class="row">
     <h2>Undevoured Succulent Burgers!</h2>
 
     <ul>
       {{#each burgers}}
       {{#unless this.devoured}}
-      <li>{{this.burger_name}} <button type="button" class="devour-btn" data-id="{{this.id}}">Devour this!</button>
+      <li>{{this.burger_name}} <button type="button" class="devour-btn" data-id="{{this.id}}">Devour Burger!</button>
+
       </li>
       {{/unless}}
       {{/each}}
     </ul>
   </div>
 </div>
-</div>
+
+
 
 <h2>Burgers that are devoured!</h2>
 <ul>
   {{#each burgers}}
   {{#if this.devoured}}
-  <li> {{this.burger_name}} <button type=" button" class="devoured-btn" data-id="{{this.id}}">Delete Burger!</button>
+  <li> {{this.burger_name}} <button type=" button" class="delete-btn" data-id="{{this.id}}">Delete
+      Burger!</button>
   </li>
   {{/if}}
   {{/each}}
 </ul>
 
 
-<h2>Add a burger</h2>
-<form class="create-form">
-
+<h2>Add burger(s)</h2>
+<form class="burger-queue">
   <div class="form-group">
     <label for="ca">Burger Name:</label>
-    <input type="text" id="burger-update" name="name">
+    <input type="text" id="burger-name" name="name" placeholder="Burger Name">
+
+    <button type=" submit" class="update-burger-btn">Update Burger(s)</button>
   </div>
-  <button type="submit" class="change-devoured">Update Burger(s)</button>
 </form>
