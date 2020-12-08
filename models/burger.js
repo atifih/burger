@@ -14,6 +14,12 @@ const burger = {
 		});
 	},
 
+	updateOne: (cols, vals, cb) => {
+		orm.updateOne("burgers", cols, vals, (res) => {
+			cb(res);
+		});
+	},
+
 	delete: (condition, cb) => {
 		orm.delete("burgers", condition, (res) => {
 			cb(res);
