@@ -1,5 +1,5 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
-
+console.log("I am connected");
 let newBurger = {
 	burger_name: "",
 	devoured: false,
@@ -16,7 +16,7 @@ $(function () {
 			burger_name: $("#burger-name").val().trim(),
 			devoured: false,
 		};
-		console.log("Hello");
+		console.log("Burger Name:" + newBurger.burger_name);
 		// Send the POST request for new burgers.
 		$.ajax("/api/burgers/", {
 			type: "POST",
@@ -27,37 +27,38 @@ $(function () {
 			location.reload();
 		});
 	});
-});
 
-// Tracking devoured burgers.
+	// Tracking devoured burgers.
 
-$(".devour-btn").on("click", function (event) {
-	id = $(this).attr("data-id");
-	console.log("this is:", this);
-	newlyDevoured = { devoured: true };
+	$(".devour-btn").on("click", function (event) {
+		id = $(this).attr("data-id");
 
-	// Send the PUT request for devoured burgers.
+		console.log("this is:", this);
+		newlyDevoured = { devoured: true };
 
-	$.ajax("/api/burgers/" + id, {
-		type: "PUT",
-		data: newlyDevoured,
-	}).then(function () {
-		console.log("changed devour to", newlyDevoured);
-		// Reload the page to get the updated list
-		location.reload();
+		// Send the PUT request for devoured burgers.
+
+		$.ajax("/api/burgers/" + id, {
+			type: "PUT",
+			data: newlyDevoured,
+		}).then(function () {
+			console.log("changed devour to", newlyDevoured);
+			// Reload the page to get the updated list
+			location.reload();
+		});
 	});
-});
 
-// Tracking the deletion of a burger.
+	// Tracking the deletion of a burger.
 
-$(".delete-btn").on("click", function (event) {
-	const id = $(this).attr("data-id");
-	// Send the DELETE request.
-	$.ajax("/api/burgers/" + id, {
-		type: "DELETE",
-	}).then(function () {
-		console.log("deleted burger", id);
-		// Reload the page to get the updated list
-		location.reload();
+	$(".delete-btn").on("click", function (event) {
+		const id = $(this).attr("data-id");
+		// Send the DELETE request.
+		$.ajax("/api/burgers/" + id, {
+			type: "DELETE",
+		}).then(function () {
+			console.log("deleted burger", id);
+			// Reload the page to get the updated list
+			location.reload();
+		});
 	});
 });

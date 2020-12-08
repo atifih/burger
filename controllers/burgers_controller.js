@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 			unconsumed_burgers: data,
 		};
 		console.log(hbsObject);
-		res.render("index", hbsObject);
+		res.render("index", { burgers: data });
 	});
 });
 
