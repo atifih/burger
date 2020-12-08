@@ -93,7 +93,7 @@ const orm = {
 		var queryString = "DELETE FROM " + table;
 		queryString += " WHERE ";
 		queryString += condition;
-
+		console.log(table, condition, queryString);
 		connection.query(queryString, (err, result) => {
 			if (err) {
 				throw err;
