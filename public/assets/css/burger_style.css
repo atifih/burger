@@ -1,0 +1,45 @@
+body {
+ 
+  background-color: #979151;
+}
+
+h2{ 
+      text-align: center;
+    color: white;
+}
+.container-l{
+   
+    color: white;
+    background-color: rgb(87, 124, 156);
+}
+.container-c{
+    
+    color: white;
+    background-color: green;
+}
+.container-r{
+    
+    color: rgb(134, 89, 78);
+    background-color: rgb(155, 144, 130);
+}
+
+.clearfix {
+  overflow: auto;
+ 
+}
+
+.delete-btn{
+    text-align: right;
+    color:white;
+     background-color: rgb(66, 66, 17);
+}
+
+.devour-btn{
+    text-align: right;
+    color: white;
+     background-color: rgb(77, 86, 135);
+}
+
+.burger_queue{
+    float: left;
+}

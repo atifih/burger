@@ -1,45 +1,65 @@
-<div class="jumbotron">
-  <h1 class="display-4">Eat Da Burgers!</h1>
-  <img src="/assets/img/burger.jpg" alt="burger">
-
-</div>
-
-<div class="succulent">
-  <div class="row">
-    <h2>Undevoured Succulent Burgers!</h2>
-
-    <ol>
-      {{#each burgers}}
-      {{#unless this.devoured}}
-      <li>{{this.burger_name}} <button type="button" class="devour-btn" data-id={{this.id}}>Devour Burger!</button>
-
-      </li>
-      {{/unless}}
-      {{/each}}
-    </ol>
+<div class="jumbotron text-center">
+  <h1 class=" display-4">Eat Da Burgers!</h1>
+  <div>
+    <img src=" /assets/img/burger.jpg" alt="burger" width="300" height="300">
   </div>
 </div>
 
+<div class="succulent ">
+  <div class="row align-items-center">
+    <div class="col-sm sunny-morning-gradient">
+
+      <h2>Undevoured Succulent Burgers!</h2>
+      <div class="container-fluid container-l">
+
+        <ol>
+          {{#each burgers}}
+          {{#unless this.devoured}}
+          <li>{{this.burger_name}} <button type="button" class="clearfix devour-btn col-sm offset-sm"
+              data-id={{this.id}}>Devour
+              Burger!</button>
+
+          </li>
+          {{/unless}}
+          {{/each}}
+        </ol>
+      </div>
+    </div>
 
 
-<h2>Burgers that are devoured!</h2>
-<ul>
-  {{#each burgers}}
-  {{#if this.devoured}}
-  <li> {{this.burger_name}} <button type=" button" class="delete-btn" data-id={{this.id}}>Delete
-      Burger!</button>
-  </li>
-  {{/if}}
-  {{/each}}
-</ul>
 
 
-<h2>Add burger(s)</h2>
-<form class="burger-queue">
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="burger-name" name="name" placeholder="Burger Name">
 
-    <button type=" submit" class="update-burger-btn">Update Burger(s)</button>
+    <div class="col-sm aqua-gradient">
+      <h2>Burgers that are devoured!</h2>
+      <div class="container-fluid container-c">
+        <ol>
+          {{#each burgers}}
+          {{#if this.devoured}}
+          <li> {{this.burger_name}} <button type=" button" class="clearfix delete-btn col-sm offset-sm"
+              data-id={{this.id}}>Delete
+              Burger!</button>
+          </li>
+          {{/if}}
+          {{/each}}
+        </ol>
+      </div>
+    </div>
+
+
+
+    <div class="col-sm  heavy-rain-gradient" text-center>
+      <h2>Add burger(s)</h2>
+      <div class="container-fluid container-r">
+
+        <form class="burger-queue">
+          <div class="form-group ">
+            <input type=" text" id="burger-name" name="name" placeholder="Burger Name" class="col-sm">
+
+            <button type=" submit" class="update-burger-btn offset-col-sm">Update Burger(s)</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-</form>
+</div>
